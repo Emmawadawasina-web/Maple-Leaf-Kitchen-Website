@@ -1,0 +1,13 @@
+{
+  "name": "Maple Leaf Ventures Limited",
+  "description": "A high-converting e-commerce website for a Nigerian kitchenware brand featuring AI-powered assistants, visual search, and localized conversion tactics.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "AI Product Assistant",
+    "Visual Search",
+    "Product Catalog",
+    "Nigerian Market Optimized Checkout"
+  ]
+}

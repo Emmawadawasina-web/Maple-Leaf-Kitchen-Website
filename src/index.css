@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", "Georgia", ui-serif, Helvetica, serif;
+
+  --color-brand-primary: #C8471A;
+  --color-brand-accent: #2E7D32;
+  --color-brand-bg: #F9F7F4;
+  --color-stone-900: #1A1A1A;
+  
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2.5rem;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-bg text-stone-900 font-sans;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-bold tracking-tight;
+  }
+}
+
+.glass-pill {
+  @apply backdrop-blur-md bg-white/70 border border-white/20 shadow-sm rounded-full;
+}
+
+.btn-primary {
+  @apply bg-brand-primary text-white px-10 py-4 rounded-full font-bold text-lg transition-all active:scale-95 hover:shadow-xl hover:brightness-110;
+}
+
+.btn-outline {
+  @apply border-2 border-stone-900 text-stone-900 px-10 py-4 rounded-full font-bold text-lg transition-all hover:bg-stone-900 hover:text-white active:scale-95;
+}
+
+.vibrant-card-red {
+  @apply bg-white rounded-[40px] border-b-8 border-brand-primary shadow-xl transition-transform hover:-translate-y-2;
+}
+
+.vibrant-card-green {
+  @apply bg-white rounded-[40px] border-b-8 border-brand-accent shadow-xl transition-transform hover:-translate-y-2;
+}
+
+.banner-top {
+  @apply bg-brand-accent text-white text-[11px] py-2 px-8 flex justify-between items-center font-medium uppercase tracking-[0.1em];
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

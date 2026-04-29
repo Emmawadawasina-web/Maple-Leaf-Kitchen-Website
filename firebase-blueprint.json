@@ -1,0 +1,82 @@
+{
+  "entities": {
+    "Product": {
+      "title": "Kitchenware Product",
+      "description": "A high-quality kitchenware item sold by Maple Leaf Ventures.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "price": { "type": "number" },
+        "category": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "rating": { "type": "number" },
+        "reviewCount": { "type": "number" },
+        "stock": { "type": "integer" },
+        "tags": { "type": "array" }
+      },
+      "required": ["name", "price", "description", "category", "imageUrl"]
+    },
+    "User": {
+      "title": "Application User",
+      "description": "User profile data for customers.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "displayName": { "type": "string" },
+        "email": { "type": "string" },
+        "phoneNumber": { "type": "string" },
+        "address": { "type": "string" },
+        "isAdmin": { "type": "boolean" }
+      },
+      "required": ["uid", "email"]
+    },
+    "Order": {
+      "title": "Customer Order",
+      "description": "An order placed by a customer.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "items": { "type": "array" },
+        "total": { "type": "number" },
+        "status": { "type": "string", "enum": ["pending", "processing", "shipped", "delivered"] },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "paymentMethod": { "type": "string" }
+      },
+      "required": ["userId", "items", "total", "status"]
+    },
+    "Review": {
+      "title": "Product Review",
+      "description": "Customer feedback on a specific product.",
+      "type": "object",
+      "properties": {
+        "productId": { "type": "string" },
+        "userId": { "type": "string" },
+        "userName": { "type": "string" },
+        "rating": { "type": "number" },
+        "comment": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["productId", "userId", "rating"]
+    }
+  },
+  "firestore": {
+    "products": {
+      "schema": "Product",
+      "description": "Collection of all kitchenware items."
+    },
+    "users": {
+      "schema": "User",
+      "description": "Customer and admin profiles."
+    },
+    "orders": {
+      "schema": "Order",
+      "description": "Records of all customer purchases."
+    },
+    "products/{productId}/reviews": {
+      "schema": "Review",
+      "description": "Customer reviews for a specific product."
+    }
+  }
+}
